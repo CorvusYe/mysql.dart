@@ -204,6 +204,17 @@ class MySQLColumnType {
         return String;
     }
   }
+
+  @override
+  int get hashCode => intVal.hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    if (other is MySQLColumnType) {
+      return intVal == other.intVal;
+    }
+    return false;
+  }
 }
 
 Tuple2<String, int> parseBinaryColumnData(
